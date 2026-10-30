@@ -4,7 +4,9 @@ import { Badge, Table } from "react-bootstrap"
 import { GrValidate } from "react-icons/gr"
 import { FcApproval, FcDisapprove } from "react-icons/fc"
 import { NumericFormat } from "react-number-format"
-import FormatDatuma from "../../components/FormatDatuma"
+import { Link } from "react-router-dom"
+import { RouteNames } from "../../constants"
+
 
 
 export default function ApartmanPregled() {
@@ -19,21 +21,24 @@ export default function ApartmanPregled() {
     }
 
     useEffect(() => {
-        console.log('Došao na pregled apartmana')
         ucitajApartmane()
     }, [])
-
+ 
 
     return (
         <>
-            <Table hover striped bordered>
+         <Link to={RouteNames.APARTMANI_DODAJ} className="btn btn-primary mb-3">
+                Dodavanje novog apartmana
+            </Link>
+            <Table hover striped bordered responsive>
                 <thead>
                     <tr>
                         <th>Naziv</th>
-                        <th>Površina</th>
-                        <th>Cijena noćenja</th>
-                        <th>Slobodno od:</th>
-                        <th>Aktivan</th>
+                        <th>Grad i Adresa</th>
+                        <th>Cijena po noći</th>
+                        <th>Kapacitet</th>
+                        <th>Status</th>
+                        <th className="text-center">Akcije</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,23 +47,28 @@ export default function ApartmanPregled() {
                             <td className="lead">
                                 {apartman.naziv}
                             </td>
-                            <td className="text-end">
-                                {apartman.povrsina}
+                            <td>
+                                {apartman.grad}, {apartman.adresa}
                             </td>
-                            <td className="desno">
+                            <td className="text-end">
                                 <NumericFormat
-                                    value={apartman.cijenaNocenja}
+                                    value={apartman.cijenaPoNoci}
                                     displayType={'text'}
                                     decimalSeparator=","
                                     decimalScale={2}
                                     fixedDecimalScale
-                                    thousandSeparator='.'
+                                    thousandSeparator="."
                                     suffix=" €"
-                                    prefix="="
                                 />
                             </td>
-                            <td style={{ textAlign: 'center' }}>
-                                <FormatDatuma datum={apartman.datumPokretanja} />
+                            <td className="text-center">
+                                {apartman.kapacitet} {apartman.kapacitet === 1 ? 'osoba' : 'osobe'}
+                            </td>
+                            
+                            <td className="text-center">
+                                <span className={`badge ${apartman.aktivan ? 'bg-success' : 'bg-secondary'}`}>
+                                    {apartman.aktivan ? 'Aktivan' : 'Neaktivan'}
+                                </span>
                             </td>
                             <td>
                                 <GrValidate
