@@ -14,10 +14,10 @@ export default function ApartmanPromjena() {
 
     async function ucitajApartman() {
         await ApartmanService.getBySifra(params.sifra).then((odgovor) => {
-            const s = odgovor.data
-            s.datumPokretanja = s.datumPokretanja.substring(0, 10)
-            setApartman(s)
-            setAktivan(s.aktivan)
+            const a = odgovor.data
+            a.datumPokretanja = a.datumPokretanja.substring(0, 10)
+            setApartman(a)
+            setAktivan(a.aktivan)
         })
     }
 
@@ -39,7 +39,7 @@ export default function ApartmanPromjena() {
             opis: podaci.get('opis'),
             grad: podaci.get("grad"),
             adresa: podaci.get("adresa"),
-            cijenaPoNoci: parseFloat(podaci.get('cijena')),
+            cijenaPoNoci: parseFloat(podaci.get('cijenaPoNoci')),
             kapacitet: parseInt(podaci.get('kapacitet')),
             slikaUrl: podaci.get('slikaUrl'),
             aktivan: aktivan

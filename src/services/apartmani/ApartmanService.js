@@ -17,13 +17,13 @@ async function dodaj(apartman){
     apartmani.push(apartman)
 }
 
-async function promijeni(sifra, smjer){
+async function promijeni(sifra, apartman){
     const index = nadiIndex(sifra)
-    smjerovi[index] = {...smjerovi[index], ...smjer}
+    apartmani[index] = {...apartmani[index], ...apartman}
 }
 
 function nadiIndex(sifra){
-    return smjerovi.findIndex(s => s.sifra === parseInt(sifra))
+    return apartmani.findIndex(a => a.sifra === parseInt(sifra))
 } 
 
 export default{
