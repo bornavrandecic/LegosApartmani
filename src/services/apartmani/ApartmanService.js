@@ -4,6 +4,10 @@ async function get(){
     return {data: [...apartmani]} 
 }
 
+async function getBySifra(sifra){
+    return {data: apartmani.find(a => a.sifra === parseInt(sifra))}
+}
+
 async function dodaj(apartman){
     if(apartmani.length === 0){
         apartman.sifra = 1
@@ -13,8 +17,18 @@ async function dodaj(apartman){
     apartmani.push(apartman)
 }
 
+async function promijeni(sifra, smjer){
+    const index = nadiIndex(sifra)
+    smjerovi[index] = {...smjerovi[index], ...smjer}
+}
+
+function nadiIndex(sifra){
+    return smjerovi.findIndex(s => s.sifra === parseInt(sifra))
+} 
 
 export default{
     get,
-    dodaj
+    getBySifra,
+    dodaj,
+    promijeni
 }

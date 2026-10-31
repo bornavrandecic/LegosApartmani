@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import ApartmanService from "../../services/apartmani/ApartmanService"
-import { Badge, Table } from "react-bootstrap"
+import { Badge, Button, Table } from "react-bootstrap"
 import { GrValidate } from "react-icons/gr"
 import { FcApproval, FcDisapprove } from "react-icons/fc"
 import { NumericFormat } from "react-number-format"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { RouteNames } from "../../constants"
 
 
@@ -12,6 +12,7 @@ import { RouteNames } from "../../constants"
 export default function ApartmanPregled() {
     const [apartmani, setApartmani] = useState([])
 
+ const navigate = useNavigate()
 
 
     async function ucitajApartmane() {
@@ -38,7 +39,7 @@ export default function ApartmanPregled() {
                         <th>Cijena po noći</th>
                         <th>Kapacitet</th>
                         <th>Status</th>
-                        <th className="text-center">Akcije</th>
+                        <th className="text-center">Akcija</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,19 +72,9 @@ export default function ApartmanPregled() {
                                 </span>
                             </td>
                             <td>
-                                <GrValidate
-                                    size={25}
-                                    color={apartman.aktivan ? 'green' : 'red'}
-                                    title={apartman.aktivan ? 'Aktivan' : 'Neaktivan'}
-                                />
-
-                                {apartman.aktivan ? (
-                                    <FcApproval />
-                                ) : (
-                                    <FcDisapprove />
-                                )}
-
-
+                                <Button onClick={()=>{navigate(`/apartmani/${apartman.sifra}`)}}>
+                                    Promjena
+                                </Button>
                             </td>
                         </tr>
                     ))}
