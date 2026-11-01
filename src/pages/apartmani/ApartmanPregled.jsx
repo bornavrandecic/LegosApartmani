@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import ApartmanService from "../../services/apartmani/ApartmanService"
 import { Badge, Button, Table } from "react-bootstrap"
-import { GrValidate } from "react-icons/gr"
-import { FcApproval, FcDisapprove } from "react-icons/fc"
 import { NumericFormat } from "react-number-format"
 import { Link, useNavigate } from "react-router-dom"
 import { RouteNames } from "../../constants"
@@ -25,6 +23,15 @@ export default function ApartmanPregled() {
         ucitajApartmane()
     }, [])
  
+      async function obrisi(sifra){
+        if(!confirm('Sigurno obrisati?')){
+            return
+        }
+
+        await ApartmanService.obrisi(sifra)
+        ucitajApartmane()
+    }
+
 
     return (
         <>
@@ -74,6 +81,9 @@ export default function ApartmanPregled() {
                             <td>
                                 <Button onClick={()=>{navigate(`/apartmani/${apartman.sifra}`)}}>
                                     Promjena
+                                </Button>
+                                <Button variant="danger" onClick={() => obrisi(apartman.sifra)} className="ms-2">
+                                    Brisanje
                                 </Button>
                             </td>
                         </tr>

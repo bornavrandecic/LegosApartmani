@@ -17,18 +17,26 @@ async function dodaj(apartman){
     apartmani.push(apartman)
 }
 
+function nadiIndex(sifra){
+    return apartmani.findIndex(a => a.sifra === parseInt(sifra))
+} 
+
 async function promijeni(sifra, apartman){
     const index = nadiIndex(sifra)
     apartmani[index] = {...apartmani[index], ...apartman}
 }
 
-function nadiIndex(sifra){
-    return apartmani.findIndex(a => a.sifra === parseInt(sifra))
-} 
+
+async function obrisi(sifra){
+    const index = nadiIndex(sifra)
+    apartmani.splice(index,1)
+}
+
 
 export default{
     get,
     getBySifra,
     dodaj,
-    promijeni
+    promijeni,
+    obrisi
 }

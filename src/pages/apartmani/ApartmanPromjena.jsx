@@ -15,7 +15,6 @@ export default function ApartmanPromjena() {
     async function ucitajApartman() {
         await ApartmanService.getBySifra(params.sifra).then((odgovor) => {
             const a = odgovor.data
-            a.datumPokretanja = a.datumPokretanja.substring(0, 10)
             setApartman(a)
             setAktivan(a.aktivan)
         })
