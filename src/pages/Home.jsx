@@ -1,21 +1,21 @@
-import Placeholder from 'react-bootstrap/Placeholder';
+import slika from '../assets/LegosApartmani.svg'
+import { IME_APLIKACIJE } from '../constants'
 
 
 export default function Home(){
 
+    return(
+        <>
+          <h1 className='text-3xl font-bold m-5 text-center'>
+               Dobrodošli na {IME_APLIKACIJE}
+            </h1>
 
-   return (
-    <>
-      <Placeholder xs={12} />
+            <div className='text-center mb-4'>
+                <img src={slika} 
+                className='img-fluid rounded-5' alt='Legos Apartmani' />
+            </div>
 
-      <Placeholder xs={12} bg="primary" />
-      <Placeholder xs={12} bg="secondary" />
-      <Placeholder xs={12} bg="success" />
-      <Placeholder xs={12} bg="danger" />
-      <Placeholder xs={12} bg="warning" />
-      <Placeholder xs={12} bg="info" />
-      <Placeholder xs={12} bg="light" />
-      <Placeholder xs={12} bg="dark" />
-    </>
-  );
+        
+        </>
+    )
 }

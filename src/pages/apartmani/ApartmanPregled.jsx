@@ -78,11 +78,13 @@ export default function ApartmanPregled() {
                                     {apartman.aktivan ? 'Aktivan' : 'Neaktivan'}
                                 </span>
                             </td>
-                            <td>
-                                <Button onClick={()=>{navigate(`/apartmani/${apartman.sifra}`)}}>
+                            <td className="text-center">
+                                <Button variant="success" 
+                                onClick={()=>{navigate(`/apartmani/${apartman.sifra}`)}}>
                                     Promjena
                                 </Button>
-                                <Button variant="danger" onClick={() => obrisi(apartman.sifra)} className="ms-2">
+                                <Button variant="danger" 
+                                onClick={() => obrisi(apartman.sifra)} className="ms-2">
                                     Brisanje
                                 </Button>
                             </td>

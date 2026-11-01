@@ -31,5 +31,38 @@ export const apartmani = [
     kapacitet: 8,
     slikaUrl: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
     aktivan: true
+  },
+  {
+    sifra: 13,
+    naziv: "Seafront Panorama Penthouse",
+    opis: "Ekskluzivan penthouse s velikom terasom i panoramskim pogledom na otoke. Uživajte u luksuzu i udobnosti na samoj obali.",
+    grad: "Šibenik",
+    adresa: "Obala dr. Franje Tuđmana 4",
+    cijenaPoNoci: 180.00,
+    kapacitet: 6,
+    slikaUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
+    aktivan: true
+  },
+  {
+    sifra: 14,
+    naziv: "Green Oasis Garden Apartment",
+    opis: "Umirujući apartman okružen zelenilom i mediteranskim vrtom, savršen za bijeg od gradske gužve, a opet blizu plaže.",
+    grad: "Dubrovnik",
+    adresa: "Ulica od izvora 12",
+    cijenaPoNoci: 95.00,
+    kapacitet: 3,
+    slikaUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+    aktivan: true
+  },
+  {
+    sifra: 15,
+    naziv: "Romantic Stone Cottage",
+    opis: "Autentična kamena kućica uređena u tradicionalnom stilu s modernim sadržajima. Idealno za romantični bijeg u dvoje.",
+    grad: "Rovinj",
+    adresa: "Grisia 5",
+    cijenaPoNoci: 110.00,
+    kapacitet: 2,
+    slikaUrl: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=800&q=80",
+    aktivan: true
   }
 ];
