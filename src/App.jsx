@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import ApartmanPregled from './pages/apartmani/ApartmanPregled'
 import ApartmanNovi from './pages/apartmani/ApartmanNovi'
 import ApartmanPromjena from './pages/apartmani/ApartmanPromjena'
+import { DATA_SOURCE, IME_APLIKACIJE, RouteNames } from './constants'
 
 export default function App() {
 
@@ -24,7 +25,7 @@ export default function App() {
           </Routes>
            </Container>
         <hr />
-        &copy; {IME_APLIKACIJE}
+        &copy; {IME_APLIKACIJE} {{DATA_SOURCE}}
       </Container>
          </>
   )

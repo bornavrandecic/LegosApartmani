@@ -1,42 +1,35 @@
-import { apartmani } from "../apartmani/ApartmanPodaci";
+import { DATA_SOURCE } from "../../constants"
+import ApartmanServiceLocalStorage from "./ApartmanServiceLocalStorage"
+import ApartmanServiceMemorija from "./ApartmanServiceMemorija"
 
-async function get(){
-    return {data: [...apartmani]} 
+
+let Servis = null
+
+switch(DATA_SOURCE){
+    case 'memorija':
+        Servis = ApartmanServiceMemorija
+        break
+    case 'localStorage':
+        Servis = ApartmanServiceLocalStorage
+        break
+    default:
+        Servis = null
 }
 
-async function getBySifra(sifra){
-    return {data: apartmani.find(a => a.sifra === parseInt(sifra))}
+const PrazanServis = {
+    get: async () => ({data: []}),
+    getBySifra: async (sifra) => ({data: {}}),
+    dodaj: async (apartman) => {console.error('Servis nije implementiran')},
+    promijeni: async (sifra, apartman) => {console.error('Servis nije implementiran')},
+    obrisi: async (sifra) => {console.error('Servis nije implementiran')}
 }
 
-async function dodaj(apartman){
-    if(apartmani.length === 0){
-        apartman.sifra = 1
-    }else{
-        apartman.sifra = apartmani[apartmani.length - 1].sifra + 1
-    }
-    apartmani.push(apartman)
-}
-
-function nadiIndex(sifra){
-    return apartmani.findIndex(a => a.sifra === parseInt(sifra))
-} 
-
-async function promijeni(sifra, apartman){
-    const index = nadiIndex(sifra)
-    apartmani[index] = {...apartmani[index], ...apartman}
-}
-
-
-async function obrisi(sifra){
-    const index = nadiIndex(sifra)
-    apartmani.splice(index,1)
-}
-
+const AktivniServis = Servis || PrazanServis
 
 export default{
-    get,
-    getBySifra,
-    dodaj,
-    promijeni,
-    obrisi
+ get: () => AktivniServis.get(),
+    getBySifra: (sifra) => AktivniServis.getBySifra(sifra),
+    dodaj: (apartman) => AktivniServis.dodaj(apartman),
+    promijeni: (sifra,apartman) => AktivniServis.promijeni(sifra,apartman),
+    obrisi: (sifra) => AktivniServis.obrisi(sifra)
 }

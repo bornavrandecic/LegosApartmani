@@ -6,3 +6,5 @@ export const RouteNames = {
     APARTMANI_DODAJ: '/apartmani/novi',
     APARTMANI_PROMJENA: '/apartmani/:sifra',
 }
+// memorija, localStorage, firebase
+export const DATA_SOURCE = 'localStorage'
