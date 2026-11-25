@@ -1,8 +1,15 @@
+import { apartmani as pocetniApartmani } from "./ApartmanPodaci"
+
 const STORAGE_KEY='apartmani'
 
 function dohvatiSveIzStorage(){
     const podaci = localStorage.getItem(STORAGE_KEY)
-    return podaci ? JSON.parse(podaci) : []
+    if(podaci === null){
+        // prvo pokretanje: upiši primjere da aplikacija nije prazna
+        spremiUStorage(pocetniApartmani)
+        return [...pocetniApartmani]
+    }
+    return JSON.parse(podaci)
 }
 
 function spremiUStorage(podaci){
