@@ -25,6 +25,9 @@ export default function Izbornik() {
                             <NavDropdown.Item as={Link} to="/gosti">
                                 Gosti
                             </NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/rezervacije">
+                                Rezervacije
+                            </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

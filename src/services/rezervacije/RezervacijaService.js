@@ -1,0 +1,3 @@
+import RezervacijaServiceLocalStorage from "./RezervacijaServiceLocalStorage"
+
+export default RezervacijaServiceLocalStorage

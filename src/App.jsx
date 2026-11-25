@@ -10,6 +10,9 @@ import ApartmanPromjena from './pages/apartmani/ApartmanPromjena'
 import GostPregled from './pages/gosti/GostPregled'
 import GostNovi from './pages/gosti/GostNovi'
 import GostPromjena from './pages/gosti/GostPromjena'
+import RezervacijaPregled from './pages/rezervacije/RezervacijaPregled'
+import RezervacijaNovi from './pages/rezervacije/RezervacijaNovi'
+import RezervacijaPromjena from './pages/rezervacije/RezervacijaPromjena'
 import { DATA_SOURCE, IME_APLIKACIJE, RouteNames } from './constants'
 
 export default function App() {
@@ -28,6 +31,10 @@ export default function App() {
             <Route path={RouteNames.GOSTI} element={<GostPregled />} />
             <Route path={RouteNames.GOSTI_DODAJ} element={<GostNovi />} />
             <Route path={RouteNames.GOSTI_PROMJENA} element={<GostPromjena />} />
+
+            <Route path={RouteNames.REZERVACIJE} element={<RezervacijaPregled />} />
+            <Route path={RouteNames.REZERVACIJE_DODAJ} element={<RezervacijaNovi />} />
+            <Route path={RouteNames.REZERVACIJE_PROMJENA} element={<RezervacijaPromjena />} />
           </Routes>
            </Container>
         <hr />
