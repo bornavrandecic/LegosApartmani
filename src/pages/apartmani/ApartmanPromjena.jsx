@@ -52,7 +52,7 @@ export default function ApartmanPromjena() {
                 Promjena Apartmana
             </h3>
 
-            <Form onSubmit={obradiSubmit}>
+            <Form key={apartman.sifra} onSubmit={obradiSubmit}>
 
                 <Form.Group controlId="naziv">
                     <Form.Label>Naziv</Form.Label>
