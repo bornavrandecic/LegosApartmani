@@ -1,7 +1,130 @@
-.app{
-  min-height: 500px;
+:root {
+  --legos-primarna: #0b5d7a;
+  --legos-tamna: #083f53;
+  --legos-svijetla: #e8f3f7;
+  --legos-akcent: #f4a259;
 }
 
-.desno{
+body {
+  background-color: #f6f8fa;
+}
+
+/* --- izbornik --- */
+.legos-navbar {
+  background: linear-gradient(90deg, var(--legos-tamna), var(--legos-primarna));
+}
+
+.legos-navbar .nav-link.active {
+  color: var(--legos-akcent) !important;
+  font-weight: 600;
+}
+
+/* --- glavni sadržaj --- */
+.app {
+  min-height: 70vh;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.naslov-stranice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.naslov-stranice h2 {
+  margin: 0;
+  color: var(--legos-tamna);
+}
+
+/* --- početna --- */
+.hero {
+  background: linear-gradient(135deg, var(--legos-primarna), #1b8fb5);
+  color: white;
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero img {
+  max-height: 160px;
+  background: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.stat-kartica {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  height: 100%;
+}
+
+.stat-kartica .ikona {
+  font-size: 2rem;
+  color: var(--legos-primarna);
+}
+
+.stat-kartica .vrijednost {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--legos-tamna);
+}
+
+/* --- kartice apartmana --- */
+.apartman-kartica {
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+}
+
+.apartman-kartica:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.apartman-kartica .card-img-top {
+  height: 180px;
+  object-fit: cover;
+  background-color: var(--legos-svijetla);
+}
+
+.apartman-kartica.neaktivan {
+  opacity: 0.6;
+}
+
+/* --- tablice i forme --- */
+.table thead th {
+  background-color: var(--legos-svijetla);
+  color: var(--legos-tamna);
+}
+
+.forma-okvir {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.izracun {
+  background-color: var(--legos-svijetla);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/* --- podnožje --- */
+.podnozje {
+  color: #6c757d;
+  font-size: 0.9rem;
+  padding: 1rem 0 2rem;
+}
+
+.desno {
   text-align: right;
 }
